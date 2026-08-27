@@ -1,0 +1,284 @@
+[
+  {
+    "id": "SCENARIO_01_WHAT_DRIVES_ARE_ACTIVE",
+    "category": "Active Placement Drives",
+    "name": "Query Active Campus Placement Drives",
+    "input_query": "What drives are currently active?",
+    "expected_intent": "GET_ACTIVE_DRIVES",
+    "expected_tool": "get_active_drives",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_02_WHO_IS_ELIGIBLE_FOR_GOOGLE",
+    "category": "Candidate Eligibility & Filtering",
+    "name": "Candidate Eligibility Verification for Google",
+    "input_query": "Who is eligible for Google?",
+    "expected_intent": "CHECK_ELIGIBILITY",
+    "expected_tool": "check_eligibility",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_03_TOP_CANDIDATES_MICROSOFT",
+    "category": "AI Candidate Matcher",
+    "name": "Rank Top Candidates for Microsoft",
+    "input_query": "Show me the top candidates for Microsoft.",
+    "expected_intent": "MATCH_CANDIDATES",
+    "expected_tool": "match_candidates",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_04_WHY_NOT_ELIGIBLE_RAHUL",
+    "category": "Explainable AI & Reasoning",
+    "name": "Explain Why Candidate Is Ineligible",
+    "input_query": "Why isn't Rahul eligible?",
+    "expected_intent": "EXPLAIN_REJECTION",
+    "expected_tool": "get_student_fit",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_05_EXPLAIN_RAHUL_FIT",
+    "category": "Explainable AI & Reasoning",
+    "name": "Explain Candidate Fit for Job Role",
+    "input_query": "Explain Rahul's fit for Google.",
+    "expected_intent": "EXPLAIN_FIT",
+    "expected_tool": "get_student_fit",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_06_MOVE_RAHUL_TO_3PM",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Reschedule Single Candidate Interview Slot",
+    "input_query": "Move Rahul's interview to 3 PM tomorrow.",
+    "expected_intent": "RESCHEDULE_INTERVIEW",
+    "expected_tool": "reschedule_interview",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_07_BULK_RESCHEDULE_GOOGLE",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Bulk Reschedule Company Interviews to Afternoon",
+    "input_query": "Move all Google interviews to tomorrow afternoon.",
+    "expected_intent": "BULK_RESCHEDULE_INTERVIEWS",
+    "expected_tool": "reschedule_multiple_interviews",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_08_NOTIFY_ALL_SELECTED",
+    "category": "Communication & Notification Dispatch",
+    "name": "Stage & Notify Selected Candidates",
+    "input_query": "Notify all selected students.",
+    "expected_intent": "NOTIFY_SELECTED",
+    "expected_tool": "prepare_notifications",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_09_SHOW_REJECTED_STUDENTS",
+    "category": "Candidate Intelligence & Results",
+    "name": "Query Non-Selected Candidate List",
+    "input_query": "Show me students who weren't selected.",
+    "expected_intent": "GET_NOT_SELECTED_STUDENTS",
+    "expected_tool": "get_rejected_students",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_10_GIVE_SELECTED_EXCEL",
+    "category": "Excel Generation & Export",
+    "name": "Generate & Download Selected Students Excel",
+    "input_query": "Give me selected students in Excel.",
+    "expected_intent": "DOWNLOAD_SELECTED_EXCEL",
+    "expected_tool": "generate_selected_students_excel",
+    "expected_action_type": "download",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_11_SCHEDULING_CONFLICTS",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Detect Timetable Schedule Collisions",
+    "input_query": "Are there any scheduling conflicts?",
+    "expected_intent": "DETECT_CONFLICTS",
+    "expected_tool": "detect_scheduling_conflicts",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_12_DOWNLOAD_NOT_SELECTED_EXCEL",
+    "category": "Excel Generation & Export",
+    "name": "Download Non-Selected Candidates Workbook",
+    "input_query": "download not selected students in excel",
+    "expected_intent": "DOWNLOAD_NOT_SELECTED_EXCEL",
+    "expected_tool": "generate_not_selected_students_excel",
+    "expected_action_type": "download",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_13_DOWNLOAD_COMPLETE_RESULTS_EXCEL",
+    "category": "Excel Generation & Export",
+    "name": "Download 3-Sheet Placement Results Spreadsheet",
+    "input_query": "download complete placement results",
+    "expected_intent": "DOWNLOAD_COMPLETE_RESULTS_EXCEL",
+    "expected_tool": "generate_placement_results_excel",
+    "expected_action_type": "download",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_14_WHO_GOT_SELECTED_GOOGLE",
+    "category": "Candidate Intelligence & Results",
+    "name": "Query Selected Candidates List for Google",
+    "input_query": "who got selected for Google India?",
+    "expected_intent": "GET_SELECTED_STUDENTS",
+    "expected_tool": "get_selected_students",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_15_WHY_WAS_RAHUL_SELECTED",
+    "category": "Explainable AI & Reasoning",
+    "name": "Explain Selection Decision Factors",
+    "input_query": "why was Rahul selected?",
+    "expected_intent": "EXPLAIN_FIT",
+    "expected_tool": "get_student_fit",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_16_ANALYZE_JOB_DESCRIPTION",
+    "category": "JD Intelligence & Extraction",
+    "name": "Parse & Analyze Recruiter Job Description",
+    "input_query": "analyze this job description: SDE hiring min CGPA 7.5 zero backlogs",
+    "expected_intent": "ANALYZE_JD",
+    "expected_tool": "analyze_jd",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_17_SCHEDULE_INTERVIEWS",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Multi-Panel Interview Scheduling",
+    "input_query": "schedule interviews for eligible candidates",
+    "expected_intent": "SCHEDULE_INTERVIEWS",
+    "expected_tool": "generate_schedule",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_18_RESOLVE_CONFLICTS",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Automated Collision Resolution & Buffer Shift",
+    "input_query": "resolve scheduling conflicts",
+    "expected_intent": "RESOLVE_CONFLICTS",
+    "expected_tool": "resolve_scheduling_conflicts",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_19_SHOW_SKILL_GAPS",
+    "category": "Cohort Analytics & Insights",
+    "name": "Skill Gap & Deficit Analysis",
+    "input_query": "show the biggest student skill gaps",
+    "expected_intent": "GET_SKILL_GAPS",
+    "expected_tool": "get_skill_gaps",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_20_SHOW_PLACEMENT_READINESS",
+    "category": "Cohort Analytics & Insights",
+    "name": "Cohort Placement Readiness Scorecard",
+    "input_query": "show cohort placement readiness",
+    "expected_intent": "GET_PLACEMENT_READINESS",
+    "expected_tool": "get_placement_readiness",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_21_TODAYS_INTERVIEW_TIMETABLE",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Daily Interview Schedule Timetable",
+    "input_query": "show today's interviews",
+    "expected_intent": "GET_TODAY_INTERVIEWS",
+    "expected_tool": "get_drive_status",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_22_COMMUNICATION_DISPATCH_LOGS",
+    "category": "Operational Governance & Audit",
+    "name": "Communication Logs & Delivery Status",
+    "input_query": "show communication logs",
+    "expected_intent": "GET_COMMUNICATION_LOGS",
+    "expected_tool": "get_communication_logs",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_23_SYSTEM_AUDIT_TRAIL",
+    "category": "Operational Governance & Audit",
+    "name": "Agent Operations Audit Trail",
+    "input_query": "show agent audit trail logs",
+    "expected_intent": "GET_AUDIT_LOGS",
+    "expected_tool": "get_audit_logs",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_24_DRIVE_STATISTICS",
+    "category": "Candidate Intelligence & Results",
+    "name": "Drive Summary & Applicant Funnel",
+    "input_query": "show drive statistics",
+    "expected_intent": "GET_DRIVE_STATISTICS",
+    "expected_tool": "get_drive_statistics",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_25_STUDENT_ROSTER",
+    "category": "Candidate Intelligence & Results",
+    "name": "Student Roster Query",
+    "input_query": "show all registered students",
+    "expected_intent": "GET_STUDENTS",
+    "expected_tool": "get_students",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_26_AVAILABLE_PANELS",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Available Interview Panels Query",
+    "input_query": "show available interview panels",
+    "expected_intent": "GET_AVAILABLE_PANELS",
+    "expected_tool": "get_available_panels",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_27_AVAILABLE_ROOMS",
+    "category": "Smart Scheduling & Timetable",
+    "name": "Available Interview Rooms Query",
+    "input_query": "show available interview rooms",
+    "expected_intent": "GET_AVAILABLE_ROOMS",
+    "expected_tool": "get_available_rooms",
+    "role": "placement_officer"
+  },
+  {
+    "id": "SCENARIO_28_STUDENT_ELIGIBLE_DRIVES",
+    "category": "Student Career Assistant",
+    "name": "Student Eligible Drives Query",
+    "input_query": "what drives can I apply for?",
+    "expected_intent": "STUDENT_ELIGIBLE_DRIVES",
+    "expected_tool": "student_get_eligible_drives",
+    "role": "student"
+  },
+  {
+    "id": "SCENARIO_29_STUDENT_APPLIED_DRIVES",
+    "category": "Student Career Assistant",
+    "name": "Student Submitted Applications Query",
+    "input_query": "show my submitted applications",
+    "expected_intent": "STUDENT_APPLIED_DRIVES",
+    "expected_tool": "student_get_applied_drives",
+    "role": "student"
+  },
+  {
+    "id": "SCENARIO_30_STUDENT_INTERVIEW_SCHEDULE",
+    "category": "Student Career Assistant",
+    "name": "Student Upcoming Interview Schedule",
+    "input_query": "what is my interview schedule?",
+    "expected_intent": "STUDENT_INTERVIEW_SCHEDULE",
+    "expected_tool": "student_get_interview_schedule",
+    "role": "student"
+  },
+  {
+    "id": "SCENARIO_31_STUDENT_RESULTS",
+    "category": "Student Career Assistant",
+    "name": "Student Placement Results & Offers",
+    "input_query": "what are my placement results?",
+    "expected_intent": "STUDENT_RESULTS",
+    "expected_tool": "student_get_results",
+    "role": "student"
+  }
+]
