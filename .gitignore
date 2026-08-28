@@ -1,0 +1,20 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+*.env
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/vite.config.js.timestamp-*.mjs
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

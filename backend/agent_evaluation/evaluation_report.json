@@ -1,0 +1,576 @@
+{
+  "evaluation_timestamp": "2026-08-27T21:07:11.348996",
+  "agent_version": "v2.0 Autonomous Placement Operations Agent",
+  "total_scenarios": 31,
+  "passed_scenarios": 31,
+  "failed_scenarios": 0,
+  "overall_benchmark_score": "100.0%",
+  "metrics": {
+    "overall_accuracy_percentage": 100.0,
+    "intent_recognition_rate": "100.0%",
+    "tool_selection_accuracy": "100.0%",
+    "policy_compliance_rate": "100.0%",
+    "audit_coverage_rate": "100.0%",
+    "average_latency_ms": "37.3ms"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "SCENARIO_01_WHAT_DRIVES_ARE_ACTIVE",
+      "name": "Query Active Campus Placement Drives",
+      "category": "Active Placement Drives",
+      "input_query": "What drives are currently active?",
+      "expected_intent": "GET_ACTIVE_DRIVES",
+      "actual_intent": "GET_ACTIVE_DRIVES",
+      "intent_match": true,
+      "expected_tool": "get_active_drives",
+      "executed_tools": [
+        "get_active_drives"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 14,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_02_WHO_IS_ELIGIBLE_FOR_GOOGLE",
+      "name": "Candidate Eligibility Verification for Google",
+      "category": "Candidate Eligibility & Filtering",
+      "input_query": "Who is eligible for Google?",
+      "expected_intent": "CHECK_ELIGIBILITY",
+      "actual_intent": "CHECK_ELIGIBILITY",
+      "intent_match": true,
+      "expected_tool": "check_eligibility",
+      "executed_tools": [
+        "check_eligibility"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_03_TOP_CANDIDATES_MICROSOFT",
+      "name": "Rank Top Candidates for Microsoft",
+      "category": "AI Candidate Matcher",
+      "input_query": "Show me the top candidates for Microsoft.",
+      "expected_intent": "MATCH_CANDIDATES",
+      "actual_intent": "MATCH_CANDIDATES",
+      "intent_match": true,
+      "expected_tool": "match_candidates",
+      "executed_tools": [
+        "match_candidates"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 18,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_04_WHY_NOT_ELIGIBLE_RAHUL",
+      "name": "Explain Why Candidate Is Ineligible",
+      "category": "Explainable AI & Reasoning",
+      "input_query": "Why isn't Rahul eligible?",
+      "expected_intent": "EXPLAIN_REJECTION",
+      "actual_intent": "EXPLAIN_REJECTION",
+      "intent_match": true,
+      "expected_tool": "get_student_fit",
+      "executed_tools": [
+        "get_student_fit"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 15,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_05_EXPLAIN_RAHUL_FIT",
+      "name": "Explain Candidate Fit for Job Role",
+      "category": "Explainable AI & Reasoning",
+      "input_query": "Explain Rahul's fit for Google.",
+      "expected_intent": "EXPLAIN_FIT",
+      "actual_intent": "EXPLAIN_FIT",
+      "intent_match": true,
+      "expected_tool": "get_student_fit",
+      "executed_tools": [
+        "get_student_fit"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 15,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_06_MOVE_RAHUL_TO_3PM",
+      "name": "Reschedule Single Candidate Interview Slot",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "Move Rahul's interview to 3 PM tomorrow.",
+      "expected_intent": "RESCHEDULE_INTERVIEW",
+      "actual_intent": "RESCHEDULE_INTERVIEW",
+      "intent_match": true,
+      "expected_tool": "reschedule_interview",
+      "executed_tools": [
+        "reschedule_interview"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 98,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_07_BULK_RESCHEDULE_GOOGLE",
+      "name": "Bulk Reschedule Company Interviews to Afternoon",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "Move all Google interviews to tomorrow afternoon.",
+      "expected_intent": "BULK_RESCHEDULE_INTERVIEWS",
+      "actual_intent": "BULK_RESCHEDULE_INTERVIEWS",
+      "intent_match": true,
+      "expected_tool": "reschedule_multiple_interviews",
+      "executed_tools": [
+        "reschedule_multiple_interviews"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 457,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_08_NOTIFY_ALL_SELECTED",
+      "name": "Stage & Notify Selected Candidates",
+      "category": "Communication & Notification Dispatch",
+      "input_query": "Notify all selected students.",
+      "expected_intent": "NOTIFY_SELECTED",
+      "actual_intent": "NOTIFY_SELECTED",
+      "intent_match": true,
+      "expected_tool": "prepare_notifications",
+      "executed_tools": [
+        "prepare_notifications"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 15,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_09_SHOW_REJECTED_STUDENTS",
+      "name": "Query Non-Selected Candidate List",
+      "category": "Candidate Intelligence & Results",
+      "input_query": "Show me students who weren't selected.",
+      "expected_intent": "GET_NOT_SELECTED_STUDENTS",
+      "actual_intent": "GET_NOT_SELECTED_STUDENTS",
+      "intent_match": true,
+      "expected_tool": "get_rejected_students",
+      "executed_tools": [
+        "get_rejected_students"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 15,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_10_GIVE_SELECTED_EXCEL",
+      "name": "Generate & Download Selected Students Excel",
+      "category": "Excel Generation & Export",
+      "input_query": "Give me selected students in Excel.",
+      "expected_intent": "DOWNLOAD_SELECTED_EXCEL",
+      "actual_intent": "DOWNLOAD_SELECTED_EXCEL",
+      "intent_match": true,
+      "expected_tool": "generate_selected_students_excel",
+      "executed_tools": [
+        "generate_selected_students_excel"
+      ],
+      "tool_match": true,
+      "download_url": "/api/drives/DRIVE_GOOGLE_2026/results/export/selected",
+      "latency_ms": 36,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_11_SCHEDULING_CONFLICTS",
+      "name": "Detect Timetable Schedule Collisions",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "Are there any scheduling conflicts?",
+      "expected_intent": "DETECT_CONFLICTS",
+      "actual_intent": "DETECT_CONFLICTS",
+      "intent_match": true,
+      "expected_tool": "detect_scheduling_conflicts",
+      "executed_tools": [
+        "detect_scheduling_conflicts"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 15,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_12_DOWNLOAD_NOT_SELECTED_EXCEL",
+      "name": "Download Non-Selected Candidates Workbook",
+      "category": "Excel Generation & Export",
+      "input_query": "download not selected students in excel",
+      "expected_intent": "DOWNLOAD_NOT_SELECTED_EXCEL",
+      "actual_intent": "DOWNLOAD_NOT_SELECTED_EXCEL",
+      "intent_match": true,
+      "expected_tool": "generate_not_selected_students_excel",
+      "executed_tools": [
+        "generate_not_selected_students_excel"
+      ],
+      "tool_match": true,
+      "download_url": "/api/drives/DRIVE_GOOGLE_2026/results/export/not-selected",
+      "latency_ms": 31,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_13_DOWNLOAD_COMPLETE_RESULTS_EXCEL",
+      "name": "Download 3-Sheet Placement Results Spreadsheet",
+      "category": "Excel Generation & Export",
+      "input_query": "download complete placement results",
+      "expected_intent": "DOWNLOAD_COMPLETE_RESULTS_EXCEL",
+      "actual_intent": "DOWNLOAD_COMPLETE_RESULTS_EXCEL",
+      "intent_match": true,
+      "expected_tool": "generate_placement_results_excel",
+      "executed_tools": [
+        "generate_placement_results_excel"
+      ],
+      "tool_match": true,
+      "download_url": "/api/drives/DRIVE_GOOGLE_2026/results/export/all",
+      "latency_ms": 44,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_14_WHO_GOT_SELECTED_GOOGLE",
+      "name": "Query Selected Candidates List for Google",
+      "category": "Candidate Intelligence & Results",
+      "input_query": "who got selected for Google India?",
+      "expected_intent": "GET_SELECTED_STUDENTS",
+      "actual_intent": "GET_SELECTED_STUDENTS",
+      "intent_match": true,
+      "expected_tool": "get_selected_students",
+      "executed_tools": [
+        "get_selected_students"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_15_WHY_WAS_RAHUL_SELECTED",
+      "name": "Explain Selection Decision Factors",
+      "category": "Explainable AI & Reasoning",
+      "input_query": "why was Rahul selected?",
+      "expected_intent": "EXPLAIN_FIT",
+      "actual_intent": "EXPLAIN_FIT",
+      "intent_match": true,
+      "expected_tool": "get_student_fit",
+      "executed_tools": [
+        "get_student_fit"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_16_ANALYZE_JOB_DESCRIPTION",
+      "name": "Parse & Analyze Recruiter Job Description",
+      "category": "JD Intelligence & Extraction",
+      "input_query": "analyze this job description: SDE hiring min CGPA 7.5 zero backlogs",
+      "expected_intent": "ANALYZE_JD",
+      "actual_intent": "ANALYZE_JD",
+      "intent_match": true,
+      "expected_tool": "analyze_jd",
+      "executed_tools": [
+        "analyze_jd"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 35,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_17_SCHEDULE_INTERVIEWS",
+      "name": "Multi-Panel Interview Scheduling",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "schedule interviews for eligible candidates",
+      "expected_intent": "SCHEDULE_INTERVIEWS",
+      "actual_intent": "SCHEDULE_INTERVIEWS",
+      "intent_match": true,
+      "expected_tool": "generate_schedule",
+      "executed_tools": [
+        "generate_schedule"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 54,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_18_RESOLVE_CONFLICTS",
+      "name": "Automated Collision Resolution & Buffer Shift",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "resolve scheduling conflicts",
+      "expected_intent": "RESOLVE_CONFLICTS",
+      "actual_intent": "RESOLVE_CONFLICTS",
+      "intent_match": true,
+      "expected_tool": "resolve_scheduling_conflicts",
+      "executed_tools": [
+        "resolve_scheduling_conflicts"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_19_SHOW_SKILL_GAPS",
+      "name": "Skill Gap & Deficit Analysis",
+      "category": "Cohort Analytics & Insights",
+      "input_query": "show the biggest student skill gaps",
+      "expected_intent": "GET_SKILL_GAPS",
+      "actual_intent": "GET_SKILL_GAPS",
+      "intent_match": true,
+      "expected_tool": "get_skill_gaps",
+      "executed_tools": [
+        "get_skill_gaps"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 17,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_20_SHOW_PLACEMENT_READINESS",
+      "name": "Cohort Placement Readiness Scorecard",
+      "category": "Cohort Analytics & Insights",
+      "input_query": "show cohort placement readiness",
+      "expected_intent": "GET_PLACEMENT_READINESS",
+      "actual_intent": "GET_PLACEMENT_READINESS",
+      "intent_match": true,
+      "expected_tool": "get_placement_readiness",
+      "executed_tools": [
+        "get_placement_readiness"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 18,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_21_TODAYS_INTERVIEW_TIMETABLE",
+      "name": "Daily Interview Schedule Timetable",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "show today's interviews",
+      "expected_intent": "GET_TODAY_INTERVIEWS",
+      "actual_intent": "GET_TODAY_INTERVIEWS",
+      "intent_match": true,
+      "expected_tool": "get_drive_status",
+      "executed_tools": [
+        "get_drive_status"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 17,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_22_COMMUNICATION_DISPATCH_LOGS",
+      "name": "Communication Logs & Delivery Status",
+      "category": "Operational Governance & Audit",
+      "input_query": "show communication logs",
+      "expected_intent": "GET_COMMUNICATION_LOGS",
+      "actual_intent": "GET_COMMUNICATION_LOGS",
+      "intent_match": true,
+      "expected_tool": "get_communication_logs",
+      "executed_tools": [
+        "get_communication_logs"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 17,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_23_SYSTEM_AUDIT_TRAIL",
+      "name": "Agent Operations Audit Trail",
+      "category": "Operational Governance & Audit",
+      "input_query": "show agent audit trail logs",
+      "expected_intent": "GET_AUDIT_LOGS",
+      "actual_intent": "GET_AUDIT_LOGS",
+      "intent_match": true,
+      "expected_tool": "get_audit_logs",
+      "executed_tools": [
+        "get_audit_logs"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 18,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_24_DRIVE_STATISTICS",
+      "name": "Drive Summary & Applicant Funnel",
+      "category": "Candidate Intelligence & Results",
+      "input_query": "show drive statistics",
+      "expected_intent": "GET_DRIVE_STATISTICS",
+      "actual_intent": "GET_DRIVE_STATISTICS",
+      "intent_match": true,
+      "expected_tool": "get_drive_statistics",
+      "executed_tools": [
+        "get_drive_statistics"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 18,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_25_STUDENT_ROSTER",
+      "name": "Student Roster Query",
+      "category": "Candidate Intelligence & Results",
+      "input_query": "show all registered students",
+      "expected_intent": "GET_STUDENTS",
+      "actual_intent": "GET_STUDENTS",
+      "intent_match": true,
+      "expected_tool": "get_students",
+      "executed_tools": [
+        "get_students"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_26_AVAILABLE_PANELS",
+      "name": "Available Interview Panels Query",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "show available interview panels",
+      "expected_intent": "GET_AVAILABLE_PANELS",
+      "actual_intent": "GET_AVAILABLE_PANELS",
+      "intent_match": true,
+      "expected_tool": "get_available_panels",
+      "executed_tools": [
+        "get_available_panels"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 16,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_27_AVAILABLE_ROOMS",
+      "name": "Available Interview Rooms Query",
+      "category": "Smart Scheduling & Timetable",
+      "input_query": "show available interview rooms",
+      "expected_intent": "GET_AVAILABLE_ROOMS",
+      "actual_intent": "GET_AVAILABLE_ROOMS",
+      "intent_match": true,
+      "expected_tool": "get_available_rooms",
+      "executed_tools": [
+        "get_available_rooms"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 17,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_28_STUDENT_ELIGIBLE_DRIVES",
+      "name": "Student Eligible Drives Query",
+      "category": "Student Career Assistant",
+      "input_query": "what drives can I apply for?",
+      "expected_intent": "STUDENT_ELIGIBLE_DRIVES",
+      "actual_intent": "STUDENT_ELIGIBLE_DRIVES",
+      "intent_match": true,
+      "expected_tool": "student_get_eligible_drives",
+      "executed_tools": [
+        "student_get_eligible_drives"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 17,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_29_STUDENT_APPLIED_DRIVES",
+      "name": "Student Submitted Applications Query",
+      "category": "Student Career Assistant",
+      "input_query": "show my submitted applications",
+      "expected_intent": "STUDENT_APPLIED_DRIVES",
+      "actual_intent": "STUDENT_APPLIED_DRIVES",
+      "intent_match": true,
+      "expected_tool": "student_get_applied_drives",
+      "executed_tools": [
+        "student_get_applied_drives"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 18,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_30_STUDENT_INTERVIEW_SCHEDULE",
+      "name": "Student Upcoming Interview Schedule",
+      "category": "Student Career Assistant",
+      "input_query": "what is my interview schedule?",
+      "expected_intent": "STUDENT_INTERVIEW_SCHEDULE",
+      "actual_intent": "STUDENT_INTERVIEW_SCHEDULE",
+      "intent_match": true,
+      "expected_tool": "student_get_interview_schedule",
+      "executed_tools": [
+        "student_get_interview_schedule"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 19,
+      "status": "PASS",
+      "passed": true
+    },
+    {
+      "scenario_id": "SCENARIO_31_STUDENT_RESULTS",
+      "name": "Student Placement Results & Offers",
+      "category": "Student Career Assistant",
+      "input_query": "what are my placement results?",
+      "expected_intent": "STUDENT_RESULTS",
+      "actual_intent": "STUDENT_RESULTS",
+      "intent_match": true,
+      "expected_tool": "student_get_results",
+      "executed_tools": [
+        "student_get_results"
+      ],
+      "tool_match": true,
+      "download_url": null,
+      "latency_ms": 22,
+      "status": "PASS",
+      "passed": true
+    }
+  ]
+}
