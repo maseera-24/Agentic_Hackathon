@@ -14,31 +14,39 @@ class EmailProvider:
         self.smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
         self.smtp_port = int(os.getenv("SMTP_PORT", "587"))
         self.smtp_user = os.getenv("SMTP_USER", "placements1108@gmail.com")
-        self.smtp_pass = os.getenv("SMTP_PASS", "")
+        self.smtp_pass = os.getenv("SMTP_PASS", "").strip()
         self.email_from = os.getenv("EMAIL_FROM", "placements1108@gmail.com")
 
     def is_configured(self) -> bool:
-        return bool(self.smtp_host and self.smtp_user and self.smtp_pass)
+        pass_val = (os.getenv("SMTP_PASS") or self.smtp_pass or "").strip()
+        return bool(self.smtp_host and self.smtp_user and pass_val)
 
     def send(self, recipient: str, subject: str, body: str, html_body: Optional[str] = None) -> Dict[str, Any]:
+        smtp_pass = (os.getenv("SMTP_PASS") or self.smtp_pass or "").strip()
+        smtp_user = (os.getenv("SMTP_USER") or self.smtp_user or "placements1108@gmail.com").strip()
+        smtp_host = (os.getenv("SMTP_HOST") or self.smtp_host or "smtp.gmail.com").strip()
+        smtp_port = int(os.getenv("SMTP_PORT", str(self.smtp_port)))
+        email_from = (os.getenv("EMAIL_FROM") or self.email_from or "placements1108@gmail.com").strip()
+
         if self.is_configured():
             try:
                 import smtplib
                 msg = EmailMessage()
                 msg["Subject"] = subject
-                msg["From"] = formataddr(("Apex Placement Portal", self.email_from))
+                msg["From"] = formataddr(("Apex Placement Portal", email_from))
                 msg["To"] = recipient
-                msg["Reply-To"] = self.email_from
+                msg["Reply-To"] = email_from
                 msg["Auto-Submitted"] = "auto-generated"
                 msg["X-Auto-Response-Suppress"] = "All"
                 msg.set_content(body)
                 if html_body:
                     msg.add_alternative(html_body, subtype="html")
 
-                with smtplib.SMTP(self.smtp_host, self.smtp_port, timeout=10) as server:
+                with smtplib.SMTP(smtp_host, smtp_port, timeout=12) as server:
                     server.starttls()
-                    server.login(self.smtp_user, self.smtp_pass)
-                    server.sendmail(self.email_from, [recipient], msg.as_string())
+                    server.login(smtp_user, smtp_pass)
+                    server.sendmail(email_from, [recipient], msg.as_string())
+                print(f"[NotificationService] [LIVE SMTP SUCCESS] Sent email to {recipient} via {smtp_user}")
                 return {
                     "status": "Delivered (Live)",
                     "channel": "Email",

@@ -5327,6 +5327,18 @@
   ],
   "audit_logs": [
     {
+      "id": "AUD_004",
+      "timestamp": "2026-08-28T23:47:34.590587",
+      "action": "STUDENT_ELIGIBLE_DRIVES",
+      "trigger": "User Query: Show me the drives I am eligible for",
+      "ai_analysis": "Executed tools: ['student_get_eligible_drives'] for Google India. Latency: 1ms.",
+      "recommendation": "Operation completed with real database data.",
+      "confidence": 0.95,
+      "approval_level": "Automatic",
+      "human_approval": "System Auto",
+      "status": "Completed"
+    },
+    {
       "id": "AUD_001",
       "timestamp": "2026-08-22T08:30:00",
       "action": "Parse & Structure JD",
