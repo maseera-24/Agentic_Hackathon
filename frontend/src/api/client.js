@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = "https://agentic-hackathon-backend.onrender.com";
 
 function getAuthHeader() {
   const token = localStorage.getItem('placement_auth_token');
