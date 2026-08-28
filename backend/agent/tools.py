@@ -149,7 +149,11 @@ class AgentToolsRegistry:
         students = db.get_students()
         # Filter eligible students
         reqs = drive.get("requirements", {})
+<<<<<<< HEAD
         eligible = [s for s in students if eligibility_matcher_engine.verify_student(s, reqs).get("status") == "Eligible"]
+=======
+        eligible = [s for s in students if eligibility_matcher_engine.verify_student(s, reqs).get("status") == "Eligible"][:22]
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         
         panels = db.get_panels()
         rooms = db.get_rooms()

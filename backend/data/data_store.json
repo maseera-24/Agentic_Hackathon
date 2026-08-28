@@ -69,6 +69,7 @@
       "student_id": "STU004",
       "department": "School of Artificial Intelligence",
       "branch": "Artificial Intelligence & Data Science"
+<<<<<<< HEAD
     },
     {
       "id": "USR-7E5635180D71",
@@ -124,6 +125,8 @@
       "name": "vu.241fa04a98",
       "role": "student",
       "student_id": "STU-EDF2A678"
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     }
   ],
   "students": [
@@ -3572,6 +3575,7 @@
         }
       },
       "attendance_confirmed": true
+<<<<<<< HEAD
     },
     {
       "id": "STU-36BA2AF5",
@@ -3632,6 +3636,8 @@
       "active_backlogs": 0,
       "skills": [],
       "profile_completion": 15
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     }
   ],
   "applications": [
@@ -5455,6 +5461,7 @@
   ],
   "audit_logs": [
     {
+<<<<<<< HEAD
       "id": "AUD_051",
       "timestamp": "2026-08-28T12:44:40.860386",
       "action": "parse_jd",
@@ -5515,6 +5522,8 @@
       "status": "Completed"
     },
     {
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       "id": "AUD_046",
       "timestamp": "2026-08-27T21:11:01.446695",
       "action": "GENERAL_HELP",
@@ -6489,6 +6498,7 @@
   ],
   "communications": [
     {
+<<<<<<< HEAD
       "student_id": "STU034",
       "student_name": "Pallavi Deshmukh",
       "channel": "Email",
@@ -6819,6 +6829,8 @@
       "id": "COMM_005"
     },
     {
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       "student_id": "STU001",
       "student_name": "Rahul Sharma",
       "drive_id": "DRIVE_GOOGLE_2026",

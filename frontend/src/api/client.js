@@ -15,11 +15,19 @@ function getAuthHeader() {
 
 export const api = {
   // ==================== AUTHENTICATION ====================
+<<<<<<< HEAD
   async loginInit(emailOrId, password = '', channel = 'email', role = 'student') {
     const res = await fetch(`${API_BASE}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: emailOrId, password, channel, role })
+=======
+  async loginInit(emailOrId, password, channel = 'email') {
+    const res = await fetch(`${API_BASE}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: emailOrId, password, channel })
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({ detail: 'Login failed' }));
@@ -439,6 +447,7 @@ export const api = {
     return res.json();
   },
 
+<<<<<<< HEAD
   async sendScheduleNotifications(driveId) {
     const res = await fetch(`${API_BASE}/communication/send-schedule-notifications`, {
       method: 'POST',
@@ -452,6 +461,8 @@ export const api = {
     return res.json();
   },
 
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
   // ==================== OFFICER APIs ====================
   async getOfficerDashboardStats() {
     const res = await fetch(`${API_BASE}/officer/dashboard-stats`, { headers: getAuthHeader() });

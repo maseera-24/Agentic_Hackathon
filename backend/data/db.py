@@ -3,7 +3,10 @@ import re
 import json
 import copy
 import datetime
+<<<<<<< HEAD
 import uuid
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 from backend.config import settings
 from backend.data.seed_data import (
     STUDENTS_SEED,
@@ -222,6 +225,7 @@ class Database:
         self._sync_collection_to_mongo("users")
         return user_data
 
+<<<<<<< HEAD
     def get_or_create_email_user(self, email, role="student"):
         """Return an email-authenticated user, creating a minimal account when needed."""
         normalized_email = (email or "").strip().lower()
@@ -252,6 +256,8 @@ class Database:
             })
         return user
 
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     # ==================== STUDENTS ====================
     def get_students(self):
         return self.state.get("students", [])

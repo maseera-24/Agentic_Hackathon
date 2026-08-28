@@ -225,6 +225,7 @@ def approve_and_send_notifications(
         }
     }
 
+<<<<<<< HEAD
 @router.post("/send-schedule-notifications")
 def send_schedule_notifications(
     payload: dict = Body(default={}),
@@ -289,6 +290,8 @@ def send_schedule_notifications(
         "failed": failed
     }
 
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 @router.post("/simulate_voice_call")
 def simulate_voice_call_endpoint(payload: dict = Body(...)):
     """Secondary tool for interactive attendance verification simulation."""

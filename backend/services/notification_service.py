@@ -1,8 +1,11 @@
 import os
 import datetime
 from typing import Dict, Any, Optional
+<<<<<<< HEAD
 from email.message import EmailMessage
 from email.utils import formataddr
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 from backend.config import settings
 
 class EmailProvider:
@@ -24,6 +27,7 @@ class EmailProvider:
         if self.is_configured():
             try:
                 import smtplib
+<<<<<<< HEAD
                 msg = EmailMessage()
                 msg["Subject"] = subject
                 msg["From"] = formataddr(("Apex Placement Portal", self.email_from))
@@ -32,6 +36,13 @@ class EmailProvider:
                 msg["Auto-Submitted"] = "auto-generated"
                 msg["X-Auto-Response-Suppress"] = "All"
                 msg.set_content(body)
+=======
+                from email.mime.text import MIMEText
+                msg = MIMEText(body)
+                msg["Subject"] = subject
+                msg["From"] = self.email_from
+                msg["To"] = recipient
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 
                 with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
                     server.starttls()
@@ -127,12 +138,21 @@ class NotificationService:
         """
         Dispatches OTP code to the requested destination without coupling authentication to a specific channel.
         """
+<<<<<<< HEAD
         subject = "Apex Placement Portal sign-in code"
         message = (
             f"Your Apex Placement Portal verification code is {otp}.\n\n"
             f"This code expires in {getattr(settings, 'OTP_EXPIRY_SECONDS', 300) // 60} minutes. "
             f"If you did not request this code, you can ignore this email.\n\n"
             f"Apex Placement Portal"
+=======
+        subject = f"Your Verification OTP — {settings.PROJECT_NAME}"
+        message = (
+            f"Your one-time login verification code is: {otp}\n\n"
+            f"This code will expire in {getattr(settings, 'OTP_EXPIRY_SECONDS', 300) // 60} minutes. "
+            f"Do not share this OTP with anyone.\n\n"
+            f"- Apex Career Services Team"
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         )
 
         if channel == "sms":

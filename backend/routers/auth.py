@@ -3,7 +3,10 @@ import base64
 import hmac
 import hashlib
 import time
+<<<<<<< HEAD
 import re
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 from typing import Optional
 from fastapi import APIRouter, HTTPException, Depends, Header, Body
 from backend.config import settings
@@ -106,6 +109,7 @@ def login(payload: dict = Body(...)):
     """
     email_or_id = payload.get("email") or payload.get("student_id") or payload.get("username", "")
     password = payload.get("password", "")
+<<<<<<< HEAD
     requested_role = payload.get("role", "student").lower()
     channel = payload.get("channel", "email").lower()
     
@@ -141,6 +145,16 @@ def login(payload: dict = Body(...)):
 
     if not user:
         raise HTTPException(status_code=401, detail="Invalid email or password")
+=======
+    channel = payload.get("channel", "email").lower()
+    
+    if not email_or_id or not password:
+        raise HTTPException(status_code=400, detail="Email/Student ID and password are required")
+        
+    user = db.verify_user(email_or_id, password)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid Email/Student ID or password")
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         
     # Generate OTP and create session
     session, raw_otp = otp_service.create_otp_session(user)
@@ -153,18 +167,25 @@ def login(payload: dict = Body(...)):
             destination = student.get("phone")
             
     # Dispatch OTP via decoupled notification service
+<<<<<<< HEAD
     delivery = notification_service.send_otp(
+=======
+    notification_service.send_otp(
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         destination=destination,
         otp=raw_otp,
         channel=channel,
         role=user.get("role", "user")
     )
+<<<<<<< HEAD
     if delivery.get("status") == "Failed":
         otp_service.delete_session(session["session_id"])
         raise HTTPException(
             status_code=503,
             detail="We could not send the OTP email. Check the SMTP settings and try again."
         )
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     
     masked_email = otp_service.mask_destination(user.get("email", ""))
     
@@ -176,8 +197,19 @@ def login(payload: dict = Body(...)):
         "email_masked": masked_email,
         "expires_in": settings.OTP_EXPIRY_SECONDS,
         "cooldown_seconds": settings.OTP_RESEND_COOLDOWN_SECONDS,
+<<<<<<< HEAD
         "delivery": "email"
     }
+=======
+        "dev_mode": settings.DEMO_MODE,
+        "dev_mode_message": "OTP delivery is in development mode." if settings.DEMO_MODE else None
+    }
+    
+    # Expose raw OTP ONLY in development/demo mode for rapid demonstration
+    if settings.DEMO_MODE:
+        response_data["dev_otp"] = raw_otp
+        
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     return response_data
 
 @router.post("/verify-otp")
@@ -242,17 +274,24 @@ def resend_otp(payload: dict = Body(...)):
         if student and student.get("phone"):
             destination = student.get("phone")
             
+<<<<<<< HEAD
     delivery = notification_service.send_otp(
+=======
+    notification_service.send_otp(
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         destination=destination,
         otp=new_raw_otp,
         channel=channel,
         role=session.get("role", "user")
     )
+<<<<<<< HEAD
     if delivery.get("status") == "Failed":
         raise HTTPException(
             status_code=503,
             detail="We could not resend the OTP email. Check the SMTP settings and try again."
         )
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     
     res_payload = {
         "status": "success",
@@ -261,8 +300,18 @@ def resend_otp(payload: dict = Body(...)):
         "expires_in": metadata.get("expires_in", settings.OTP_EXPIRY_SECONDS),
         "cooldown_seconds": metadata.get("cooldown_seconds", settings.OTP_RESEND_COOLDOWN_SECONDS),
         "email_masked": metadata.get("email_masked", ""),
+<<<<<<< HEAD
         "delivery": "email"
     }
+=======
+        "dev_mode": settings.DEMO_MODE,
+        "dev_mode_message": "OTP delivery is in development mode." if settings.DEMO_MODE else None
+    }
+    
+    if settings.DEMO_MODE:
+        res_payload["dev_otp"] = new_raw_otp
+        
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     return res_payload
 
 @router.get("/me")

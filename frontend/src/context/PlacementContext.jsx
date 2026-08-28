@@ -202,10 +202,17 @@ export function PlacementProvider({ children, initialUser = null }) {
   }, [currentUser, refreshAllData]);
 
   // Auth Operations
+<<<<<<< HEAD
   const handleInitiateLogin = async (email, password = '', channel = 'email', role = 'student') => {
     setLoading(true);
     try {
       const res = await api.loginInit(email, password, channel, role);
+=======
+  const handleInitiateLogin = async (email, password, channel = 'email') => {
+    setLoading(true);
+    try {
+      const res = await api.loginInit(email, password, channel);
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       return res;
     } finally {
       setLoading(false);

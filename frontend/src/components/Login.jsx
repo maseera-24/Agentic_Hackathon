@@ -5,6 +5,12 @@ import {
   Shield, 
   ShieldCheck, 
   Mail, 
+<<<<<<< HEAD
+=======
+  Lock, 
+  Eye, 
+  EyeOff, 
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
   ArrowRight, 
   AlertCircle, 
   CheckCircle2, 
@@ -20,13 +26,26 @@ export default function Login({ onLogin }) {
   
   // Step State: 'credentials' | 'otp'
   const [step, setStep] = useState('credentials');
+<<<<<<< HEAD
   const [role, setRole] = useState('student'); // 'officer' | 'student'
   const [email, setEmail] = useState('');
+=======
+  const [role, setRole] = useState('officer'); // 'officer' | 'student'
+  const [email, setEmail] = useState('tpo@apexinstitute.edu');
+  const [password, setPassword] = useState('officer123');
+  const [showPassword, setShowPassword] = useState(false);
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
   const [keepSignedIn, setKeepSignedIn] = useState(true);
   
   // OTP Session State
   const [sessionId, setSessionId] = useState('');
   const [maskedEmail, setMaskedEmail] = useState('');
+<<<<<<< HEAD
+=======
+  const [devOtp, setDevOtp] = useState('');
+  const [isDevMode, setIsDevMode] = useState(false);
+  const [devModeMessage, setDevModeMessage] = useState('');
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
   const [otpDigits, setOtpDigits] = useState(['', '', '', '', '', '']);
   const [cooldown, setCooldown] = useState(0);
   const [resending, setResending] = useState(false);
@@ -68,16 +87,28 @@ export default function Login({ onLogin }) {
     setOtpDigits(['', '', '', '', '', '']);
     if (newRole === 'officer') {
       setEmail('tpo@apexinstitute.edu');
+<<<<<<< HEAD
     } else {
       setEmail('');
+=======
+      setPassword('officer123');
+    } else {
+      setEmail('student@example.com');
+      setPassword('student123');
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     }
   };
 
   // STEP 1: Submit Credentials
   const handleCredentialsSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     if (!email.trim()) {
       setError('Please enter your email address.');
+=======
+    if (!email.trim() || !password.trim()) {
+      setError('Please enter your email or ID and password.');
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       return;
     }
 
@@ -86,18 +117,34 @@ export default function Login({ onLogin }) {
     setSuccessMsg('');
 
     try {
+<<<<<<< HEAD
       const res = await handleInitiateLogin(email.trim(), '', 'email', role);
+=======
+      const res = await handleInitiateLogin(email.trim(), password.trim());
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       if (res.status === 'otp_required') {
         setSessionId(res.session_id);
         setMaskedEmail(res.email_masked || email.trim());
         setCooldown(res.cooldown_seconds || 60);
+<<<<<<< HEAD
+=======
+        setIsDevMode(Boolean(res.dev_mode));
+        setDevModeMessage(res.dev_mode_message || 'OTP delivery is in development mode.');
+        if (res.dev_otp) {
+          setDevOtp(res.dev_otp);
+        }
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
         setStep('otp');
         setSuccessMsg(res.message || 'OTP sent successfully.');
       } else if (res.token && onLogin) {
         onLogin(res.user);
       }
     } catch (err) {
+<<<<<<< HEAD
       setError(err.message || 'Unable to send the verification code. Please check the email address.');
+=======
+      setError(err.message || 'Invalid credentials. Please verify your email and password.');
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     } finally {
       setLoading(false);
     }
@@ -204,6 +251,12 @@ export default function Login({ onLogin }) {
       const res = await handleResendOtp(sessionId);
       setCooldown(res.cooldown_seconds || 60);
       setOtpDigits(['', '', '', '', '', '']);
+<<<<<<< HEAD
+=======
+      if (res.dev_otp) {
+        setDevOtp(res.dev_otp);
+      }
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
       setSuccessMsg('A new 6-digit OTP has been sent to your registered email.');
       otpInputRefs.current[0]?.focus();
     } catch (err) {
@@ -213,6 +266,16 @@ export default function Login({ onLogin }) {
     }
   };
 
+<<<<<<< HEAD
+=======
+  // Quick fill helper for development/demo
+  const handleFillDevOtp = () => {
+    if (devOtp && devOtp.length === 6) {
+      handleOtpPasteString(devOtp);
+    }
+  };
+
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
   const handleBackToCredentials = () => {
     setStep('credentials');
     setError('');
@@ -292,7 +355,11 @@ export default function Login({ onLogin }) {
                     Placement Portal Sign In
                   </h2>
                   <p className="text-xs text-[#94A3B8] mt-1">
+<<<<<<< HEAD
                     Enter any email address to receive a secure one-time verification code.
+=======
+                    Sign in with your campus credentials to initiate secure 2-step OTP verification.
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                   </p>
                 </div>
 
@@ -348,7 +415,11 @@ export default function Login({ onLogin }) {
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+<<<<<<< HEAD
                         placeholder={role === 'officer' ? 'approved.officer@example.com' : 'you@example.com'}
+=======
+                        placeholder={role === 'officer' ? 'tpo@apexinstitute.edu' : 'student@example.com'}
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                         disabled={loading}
                         className="w-full bg-[#111827] border border-[#334155] rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] transition-all"
                         required
@@ -356,6 +427,44 @@ export default function Login({ onLogin }) {
                     </div>
                   </div>
 
+<<<<<<< HEAD
+=======
+                  {/* Password */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="block text-xs font-semibold text-[#CBD5E1]">
+                        PASSWORD
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => setError(role === 'officer' ? 'Demo Officer: officer123' : 'Demo Student: student123')}
+                        className="text-[11px] text-[#A78BFA] hover:underline font-medium cursor-pointer"
+                      >
+                        Demo credentials?
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <Lock className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-3" />
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password"
+                        disabled={loading}
+                        className="w-full bg-[#111827] border border-[#334155] rounded-xl pl-10 pr-10 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] transition-all"
+                        required
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3.5 top-2.5 text-[#94A3B8] hover:text-white cursor-pointer"
+                      >
+                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4 text-[#94A3B8]" />}
+                      </button>
+                    </div>
+                  </div>
+
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                   {/* Keep Signed In */}
                   <div className="flex items-center gap-2">
                     <input
@@ -426,6 +535,36 @@ export default function Login({ onLogin }) {
                   )}
                 </div>
 
+<<<<<<< HEAD
+=======
+                {/* Development Mode Notice Banner */}
+                {isDevMode && (
+                  <div className="p-3 rounded-2xl bg-gradient-to-r from-[#1E1B4B] to-[#151C32] border border-[#7C3AED]/50 text-xs space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-[#A78BFA] flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
+                        <Sparkles className="w-3.5 h-3.5 text-[#06B6D4]" />
+                        {devModeMessage}
+                      </span>
+                      {devOtp && (
+                        <button
+                          type="button"
+                          onClick={handleFillDevOtp}
+                          className="px-2 py-0.5 rounded-md bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-[10px] font-bold cursor-pointer transition-all active:scale-95 shadow-xs"
+                        >
+                          Auto-Fill
+                        </button>
+                      )}
+                    </div>
+                    {devOtp && (
+                      <div className="text-[11px] text-[#CBD5E1] flex items-center justify-between pt-1 border-t border-white/10 font-mono">
+                        <span>Generated OTP: <strong className="text-white tracking-widest text-xs">{devOtp}</strong></span>
+                        <span className="text-[10px] text-[#94A3B8]">(Demo visible)</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                 {/* Error / Success Messages */}
                 {error && (
                   <div className="p-3 rounded-xl bg-rose-950/40 border border-rose-800 text-xs text-rose-300 flex items-start gap-2 animate-fadeIn">

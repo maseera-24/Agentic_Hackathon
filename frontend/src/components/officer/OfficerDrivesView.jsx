@@ -41,7 +41,10 @@ export default function OfficerDrivesView() {
   const [rawJdText, setRawJdText] = useState('');
   const [parsingJd, setParsingJd] = useState(false);
   const [downloading, setDownloading] = useState(false);
+<<<<<<< HEAD
   const [sendingScheduleNotifications, setSendingScheduleNotifications] = useState(false);
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 
   const currentDrive = drives.find(d => d.id === activeDriveId) || drives[0] || {
     company_name: 'Google India',
@@ -548,7 +551,11 @@ export default function OfficerDrivesView() {
                   <span>Dual-Channel Notification Release &amp; Excel Reports</span>
                 </h3>
                 <p className="text-xs text-[#94A3B8] mt-0.5">
+<<<<<<< HEAD
                   Email every scheduled shortlisted candidate their interview date, time, room, and panel assignment.
+=======
+                  12 candidate notification drafts staged. Release SMS + App Push and download placement reports.
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                 </p>
               </div>
               <span className="px-2.5 py-1 rounded-lg bg-[#06B6D4]/15 text-[#22D3EE] font-bold text-xs border border-[#06B6D4]/30">
@@ -560,11 +567,19 @@ export default function OfficerDrivesView() {
             <div className="space-y-2.5">
               <div className="p-3.5 rounded-xl bg-[#0B1020] border border-[#27324A] space-y-1 text-xs">
                 <div className="flex items-center justify-between text-white font-semibold">
+<<<<<<< HEAD
                   <span>Candidate Schedule Email</span>
                   <span className="text-[10px] text-[#4ADE80] font-mono">Ready to Dispatch</span>
                 </div>
                 <p className="text-[#CBD5E1] text-[11px] leading-relaxed">
                   &ldquo;Your interview schedule email includes the assigned date, time, room, panel, and round for each shortlisted candidate.&rdquo;
+=======
+                  <span>Candidate Notification Draft (SMS + App Push)</span>
+                  <span className="text-[10px] text-[#4ADE80] font-mono">Ready to Dispatch</span>
+                </div>
+                <p className="text-[#CBD5E1] text-[11px] leading-relaxed">
+                  &ldquo;Hello Rahul Sharma, your Technical Interview 2 for Software Development Engineer at Google India is scheduled for Tomorrow at 10:00 AM in Room 201 (Block A) with Panel A. Please confirm attendance on your portal.&rdquo;
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                 </p>
               </div>
             </div>
@@ -600,6 +615,7 @@ export default function OfficerDrivesView() {
                 Back to Schedule
               </button>
               <button
+<<<<<<< HEAD
                 onClick={async () => {
                   setSendingScheduleNotifications(true);
                   try {
@@ -617,6 +633,16 @@ export default function OfficerDrivesView() {
               >
                 <Send className="w-4 h-4" />
                 <span>{sendingScheduleNotifications ? 'Sending Schedule Emails...' : 'Send Schedule Emails'}</span>
+=======
+                onClick={() => {
+                  addToast('Notifications Released', 'Dual-channel notifications dispatched to all shortlisted candidates.', 'success');
+                  confetti({ particleCount: 80, spread: 65, origin: { y: 0.6 } });
+                }}
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#16A34A] to-[#22C55E] text-white text-xs font-bold shadow-soft flex items-center gap-2 cursor-pointer transition-all hover:scale-102"
+              >
+                <Send className="w-4 h-4" />
+                <span>Approve &amp; Send Notifications</span>
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
               </button>
             </div>
           </div>

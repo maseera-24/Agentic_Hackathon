@@ -26,6 +26,7 @@ class Settings:
     OTP_MAX_ATTEMPTS: int = int(os.getenv("OTP_MAX_ATTEMPTS", "5"))
     OTP_RESEND_COOLDOWN_SECONDS: int = int(os.getenv("OTP_RESEND_COOLDOWN_SECONDS", "60"))
 
+<<<<<<< HEAD
     # Comma-separated addresses allowed to enter the placement-officer portal.
     OFFICER_EMAILS: list[str] = [
         email.strip().lower()
@@ -36,4 +37,6 @@ class Settings:
         if email.strip()
     ]
 
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 settings = Settings()

@@ -184,10 +184,13 @@ class OTPService:
     def get_session(self, session_id: str) -> Optional[dict]:
         return self._sessions.get(session_id)
 
+<<<<<<< HEAD
     def delete_session(self, session_id: str):
         """Remove a session when OTP delivery fails before the user can verify it."""
         self._sessions.pop(session_id, None)
 
+=======
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
     def _cleanup_expired_sessions(self):
         """Removes sessions older than 30 minutes."""
         now = int(time.time())

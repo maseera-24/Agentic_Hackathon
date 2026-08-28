@@ -20,6 +20,7 @@ class SchedulerEngine:
         lunch_end = datetime.datetime.strptime("13:30", "%H:%M")
         end_dt = datetime.datetime.strptime(f"{end_hour:02d}:00", "%H:%M")
 
+<<<<<<< HEAD
         # Create slot queues for each panel across dates so the full eligible roster is scheduled.
         panel_slots = {}
         base_date = datetime.datetime.strptime(drive_info.get("date", "2026-08-22"), "%Y-%m-%d").date()
@@ -38,6 +39,20 @@ class SchedulerEngine:
                             slot_end.strftime("%H:%M")
                         ))
                     curr = slot_end + datetime.timedelta(minutes=15) # 15 min buffer between interviews
+=======
+        # Create slot queues for each panel
+        panel_slots = {}
+        for p in active_panels:
+            pid = p.get("id")
+            panel_slots[pid] = []
+            curr = start_dt
+            while curr + datetime.timedelta(minutes=duration_mins) <= end_dt:
+                slot_end = curr + datetime.timedelta(minutes=duration_mins)
+                # Skip lunch window
+                if not (curr >= lunch_start and curr < lunch_end):
+                    panel_slots[pid].append((curr.strftime("%H:%M"), slot_end.strftime("%H:%M")))
+                curr = slot_end + datetime.timedelta(minutes=15) # 15 min buffer between interviews
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
 
         # Distribute candidates evenly across panels
         assigned_count = 0
@@ -56,7 +71,11 @@ class SchedulerEngine:
                 slots = panel_slots.get(pid, [])
                 
                 if slots:
+<<<<<<< HEAD
                     slot_date, slot_start, slot_end = slots.pop(0)
+=======
+                    slot_start, slot_end = slots.pop(0)
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                     room_id = curr_panel.get("assigned_room") or (rooms[panel_idx % len(rooms)].get("id") if rooms else "ROOM_101")
                     room_obj = room_lookup.get(room_id, {})
                     
@@ -73,7 +92,11 @@ class SchedulerEngine:
                         "panel_name": curr_panel.get("name"),
                         "room_id": room_id,
                         "room_name": room_obj.get("name", f"Room {room_id}"),
+<<<<<<< HEAD
                         "date": slot_date,
+=======
+                        "date": drive_info.get("date", "2026-08-22"),
+>>>>>>> 7ea430ac41087f03137a7143ffe3d545e060af90
                         "start_time": slot_start,
                         "end_time": slot_end,
                         "status": "Scheduled",
